@@ -1,0 +1,95 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1"><marquee behavior="alternate"">VIEW ALL SPAM ATTACKERS DETAILS !!!</marquee>
+							</p>
+                            <hr>
+                            <div class="tweettext">
+                                <table border="1">
+                                    <tr>
+
+
+                                    <th>Spammer Name</th>
+                                    <th>Spammed Content</th>
+                                    <th>Spammed  Date and Time</th>
+                                        <th>Post Name</th>
+                                         <th>Spammed Feedback</th>
+
+
+                                    </tr>
+
+                            {% for object in list_objects %}
+                                    <tr>
+                                        <td style="color:red; font-size:25px; font-family:fantasy" >{{object.uname}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.dcont}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.dt}}</td>
+                                        <td style="font-family:monospace; font-size:19px;  ">{{object.pname}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.feedback}}</td>
+                                  </tr>
+
+
+
+
+
+
+
+                                        {% endfor %}
+                                </table>
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>

@@ -1,0 +1,88 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style2 {color: #FF0000}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1"><marquee behavior="alternate"">VIEW ALL POST DETAILS</marquee></p>
+                            <hr>
+ 					<div class="userdetails">
+                    <table border="1">
+                                    <tr>
+
+
+                                   <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >Post Name</th>
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >Post Desc</th>
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >Price</th>
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >Post Category</th>
+                                        <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Address </th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">City Name</th>
+                                        <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Uploaded Date</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Give Your Ratings</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Like</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Dislike</th>
+                                    </tr>
+
+ {% for object in list_objects %}
+                                    <tr>
+                                          <td style="color:red; font-size:25px; font-family:fantasy" >{{object.names }}</td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.f_story}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px;  "><span class="style2">{{object.t_price}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.fcat}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.t_name}}</span></td>
+                                         <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.c_name}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.DT}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.ratings}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.likes}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style2">{{object.dislikes}}</span></td>
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

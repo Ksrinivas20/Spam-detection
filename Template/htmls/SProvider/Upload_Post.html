@@ -1,0 +1,108 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;}
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input,textarea{
+			font-family:Aldrich;
+			font-size:15px;
+			}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style4 {color: #FFFF00; font-weight: bold; }
+        .style5 {color: #FF0000; font-weight: bold; font-style: italic; }
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">ADD POST DETAILS !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="519" align="left">
+									<tr>
+										<td width="250" height="28" bgcolor="#FF0000"><span class="style4">Post Name</span></td>
+                                        <td width="257"><input type="text" name="fname" ></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FF0000"><span class="style4">Price </span></td>
+                                        <td><input type="text" name="tprice" required></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FF0000"><span class="style4">Address </span></td>
+                                        <td><textarea name="tname" cols="30" rows="4" required="required"></textarea></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FF0000"><span class="style4">Post Category </span></td>
+                                        <td><select name="fcat">
+                                          <option>---Select---</option>
+                                          <option>Movie</option>
+                                          <option>Sports</option>
+                                          <option>Cooking</option>
+										  <option>Other</option>
+                                        </select>                                        </td>
+									</tr>
+									<tr>
+										<td bgcolor="#FF0000"><span class="style4">City Name </span></td>
+                                        <td><select name="cname">
+                                          <option>---Select---</option>
+                                          <option>Chennai</option>
+                                          <option>Bangalore</option>
+                                          <option>Mumbai</option>
+                                          <option>Culkata</option>
+                                          <option>Delhi</option>
+                                          <option>Patna</option>
+                                          <option>Pune</option>
+                                        </select>
+                                        </td>
+									</tr>
+
+                                    <tr>
+										<td bgcolor="#FF0000"><span class="style4">Post Desc </span></td>
+                                        <td><textarea name="fdesc" cols="40" rows="4"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="submit" class="style1"></td>
+                                    </tr>
+                        </table>
+
+<marquee behavior="alternate"> <p><span class="style7 style3"><em><strong>Uploaded Status</strong></em></span> :: {{ft}} </p>
+</marquee>
+
+						</fieldset>
+					</form>
+				</div>
+
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

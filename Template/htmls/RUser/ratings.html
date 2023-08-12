@@ -1,0 +1,104 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;}
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input,textarea{
+			font-family:Aldrich;
+			font-size:15px;
+			}
+        .style2 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style3 {color: #FF0000}
+        .style5 {font-weight: bold}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style2">FEED YOUR RATING HERE !!! </p>
+                            <hr>
+
+
+
+                                {% csrf_token %}
+                                <table width="446">
+									<tr>
+										<td width="184" bgcolor="#FFFF00"><span class="style3">User Name</span></td>
+                                        <td width="144"><input type="text" name="uname" value="{{objc}}" readonly></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Post Name</span></td>
+                                        <td><input type="text" name="fname"  value="{{objc1}}" readonly></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Give Your Ratings </span></td>
+                                        <td><select name="rate">
+                                          <option>--Select--</option>
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                          <option>6</option>
+                                          <option>7</option>
+                                          <option>8</option>
+                                          <option>9</option>
+                                          <option>10</option>
+                                        </select>
+                                        </td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Pot City</span></td>
+                                        <td><input type="text" name="fc" value="{{fcity}}" readonly></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Your City</span></td>
+                                        <td><input type="text" name="yc" value="{{ucity}}" readonly></td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td><input type="submit" class="style2"></td>
+                                    </tr>
+                        </table>
+
+
+<marquee behavior="alternate"> <p><span class="style7 style3 style5"><em>RATED YOUR POST HERE</em></span><span class="style2"> With </span>:: {{se}}	</p>
+</marquee>
+						</fieldset>
+					</form>
+				</div>
+
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style2 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+				
+				<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">SEARCH POSTS !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="568" align="center">
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#FF0000"><div align="center"><span class="style4 style2">Enter Your Keyword Here </span></div></td>
+                                    <td width="269"><input type="text" name="keyword" ></td>
+                                  </tr>
+  <td><p>&nbsp; </p>
+          <p>
+            <input name="submit" type="submit" class="style1" value="Search">
+        </p></td>
+  </tr>
+                                </table>
+						</fieldset>
+					</form>
+
+
+                    <form role="form" method="POST" >
+						{% csrf_token %}
+
+						<fieldset>
+
+						{% for object in objs %}
+							<p class="text-uppercase pull-center style1">VIEW ALL SEARCHED POST DETAILS !!! </p>
+                            <hr>
+ 							<div class="form-group">
+                                <P><span class="style1">Post Name</span> = {{object.names}}</P>
+                            </div>
+
+							<div class="form-group">
+                                <P><span class="style1">Price</span> = Rs.{{object.t_price}}/-</P>
+                            </div>
+
+							<div class="form-group">
+                                <P><span class="style1">Address</span> = {{object.t_name}}</P>
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">Post Category </span> = {{object.fcat}}</p>
+
+							</div>
+                            <div class="form-group">
+                                <p><span class="style1">Post Description </span> = {{object.f_story}}</p>
+
+							</div>
+                            <div class="form-group">
+                                <p><span class="style1">City Name </span> = {{object.c_name}}</p>
+
+							</div>
+                            
+                            <div class="form-group">
+                                <p><span class="style1">Upload Date and Time </span> = {{object.DT}}</p>
+
+							</div>
+                             <div class="form-group">
+                                <p><span class="style1">Give Your Rating </span> = <a href="{% url 'ratings' object.id %}">Rate&nbsp&nbsp&nbsp({{object.ratings}})</a></p>
+
+							</div>
+
+
+							<div class="form-group">
+                                <p><span class="style1">LIKE</span> = <a href="{% url 'likes' object.id %}">Like({{object.likes}})</a></p>
+
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">DISLIKE</span> = <a href="{% url 'dislikes' object.id %}">Dislike({{object.dislikes}})</a></p>
+
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">REVIEW</span> = <a href="{% url 'Review' object.id%}">Review </a></p>
+
+							</div>
+                            <div class="form-group">
+                                <p><span class="style1">RECOMMEND</span> = <a href="{% url 'Recommend' object.id%}">Recommend</a></p>
+
+							</div>
+                            
+
+
+ {% endfor %}
+						</fieldset>
+
+
+					</form>
+				
+				
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>
