@@ -5,7 +5,7 @@ The Project's:
 Coding Language :  Python
 Front End       :  Python
 Back End        :  Django-ORM
-Designing			  :  Html, css, javascript.
+Designing			  :  Html, css, javascript. 
 Data Base			  :  MySQL (WAMP Server).
 
 In here,there  is a PPT demonstrating the work.
